@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="android:Theme.DeviceDefault.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <!--<item name="android:windowActionBar">@style/actionbartheme</item>-->
+    </style>
+    <!--<style name="actionbartheme" parent="android:Theme.DeviceDefault.Light.DarkActionBar">-->
+        <!--<item name="android:background">#F0FFFF</item>-->
+        <!--<item name="android:width">70dip</item>-->
+    <!--</style>-->
+</resources>
