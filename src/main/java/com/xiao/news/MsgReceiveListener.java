@@ -4,7 +4,7 @@ package com.xiao.news;
  * Created by cfy on 15-10-7.
  */
 public interface MsgReceiveListener {
-    public void onMsgReceive(String msg);
-    public void onPushReceive(String msg);
-    public void onGetClientID(String id);
+    public void OnMsgReceive(String msg);
+    public void OnPushReceive(String msg);
+    public void OnGetClientID(String id);
 }

@@ -14,8 +14,7 @@ public class PushReceiver extends BroadcastReceiver {
 
     public static StringBuilder payloadData = new StringBuilder();
     private static MsgReceiveListener mReceiver = null;
-    public static void setMsgReceiveListener(MsgReceiveListener lm)
-    {
+    public static void setMsgReceiveListener(MsgReceiveListener lm) {
         mReceiver = lm;
     }
     @Override
@@ -31,7 +30,6 @@ public class PushReceiver extends BroadcastReceiver {
                 String messageid = bundle.getString("messageid");
 
                 boolean result = PushManager.getInstance().sendFeedbackMessage(context, taskid, messageid, 90001);
-                System.out.println("第三方回执接口调用" + (result ? "成功" : "失败"));
 
                 if (payload != null) {
                     String data = new String(payload);
@@ -40,9 +38,8 @@ public class PushReceiver extends BroadcastReceiver {
 
                     payloadData.append(data);
                     payloadData.append("\n");
-                    if(mReceiver != null)
-                    {
-                        mReceiver.onMsgReceive(data + "\n");
+                    if(mReceiver != null) {
+                        mReceiver.OnMsgReceive(data + "\n");
                     }
                 }
                 break;
@@ -51,7 +48,7 @@ public class PushReceiver extends BroadcastReceiver {
                 String cid = bundle.getString("clientid");
                 if(mReceiver != null)
                 {
-                    mReceiver.onGetClientID(cid);
+                    mReceiver.OnGetClientID(cid);
                 }
                 break;
 

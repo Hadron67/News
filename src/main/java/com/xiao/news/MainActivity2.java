@@ -20,28 +20,33 @@ public class MainActivity2 extends Activity implements MsgReceiveListener
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        PushManager.getInstance().initialize(this.getApplicationContext());
         this.setContentView(R.layout.tab_notice);
-        tView = (TextView) findViewById(R.id.text1);
-        tLogView = (EditText) findViewById(R.id.edittext1);
+//        tView = (TextView) findViewById(R.id.text1);
+//        tLogView = (EditText) findViewById(R.id.edittext1);
         getActionBar().setBackgroundDrawable(new ColorDrawable(Color.argb(255, 60, 179, 113)));
         PushManager.getInstance().initialize(this.getApplicationContext());
         PushReceiver.setMsgReceiveListener(this);
-        if (PushReceiver.payloadData != null)
-        {
+        if (PushReceiver.payloadData != null) {
             tLogView.append(PushReceiver.payloadData);
 
         }
     }
-    public void onMsgReceive(String msg)
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        PushReceiver.payloadData.delete(0, PushReceiver.payloadData.length());
+    }
+
+    public void OnMsgReceive(String msg)
     {
         this.tLogView.append(msg);
     }
-    public void onPushReceive(String msg)
+    public void OnPushReceive(String msg)
     {
 
     }
-    public void onGetClientID(String id)
+    public void OnGetClientID(String id)
     {
         this.tView.setText(id);
     }
